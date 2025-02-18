@@ -57,7 +57,11 @@ config.window_decorations = "RESIZE"
 
 config.window_background_opacity = 0.95
 
-config.default_prog = { "C:\\Program Files\\Git\\bin\\bash.exe", "-l", "-c", "zsh" }
+-- Check OS and set default shell accordingly
+if wezterm.target_triple:find("windows") then
+	config.default_prog = { "C:\\Program Files\\Git\\bin\\bash.exe", "-l", "-c", "zsh" }
+end
+
 -- tmux
 config.leader = { key = "q", mods = "ALT", timeout_milliseconds = 2000 }
 config.keys = {
