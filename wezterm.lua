@@ -73,7 +73,7 @@ config.keys = {
 	{
 		mods = "LEADER",
 		key = "x",
-		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+		action = wezterm.action.CloseCurrentPane({ confirm = false }),
 	},
 	{
 		mods = "LEADER",
@@ -174,12 +174,8 @@ wezterm.on("update-right-status", function(window, _)
 		{ Text = SOLID_LEFT_ARROW },
 	}))
 end)
-local mux = wezterm.mux
-wezterm.on("gui-startup", function(cmd)
-	if mux then
-		local tab, pane, window = mux.spawn_window(cmd or {})
-		window:gui_window():maximize()
-	end
-end)
+
+config.adjust_window_size_when_changing_font_size = false
+
 -- and finally, return the configuration to wezterm
 return config
