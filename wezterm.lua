@@ -51,8 +51,8 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = "Catppuccin Macchiato"
 config.font = wezterm.font("JetBrains Mono")
-config.font_size = 14
-
+config.font_size = 12
+config.cell_width = 0.9
 config.window_decorations = "RESIZE"
 
 config.window_background_opacity = 0.95
