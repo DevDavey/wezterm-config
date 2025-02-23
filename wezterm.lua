@@ -54,7 +54,7 @@ config.font = wezterm.font("JetBrains Mono")
 config.cell_width = 0.9
 config.window_decorations = "RESIZE"
 
-config.window_background_opacity = 0.7
+config.window_background_opacity = 0.85
 
 -- Check OS and set default shell accordingly
 if wezterm.target_triple:find("windows") then
