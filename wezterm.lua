@@ -49,18 +49,27 @@ if wezterm.config_builder then
 end
 
 -- For example, changing the color scheme:
-config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font("JetBrains Mono")
-config.font_size = 12
 config.cell_width = 0.9
 config.window_decorations = "RESIZE"
 
-config.window_background_opacity = 0.5
+config.window_background_opacity = 0.7
 
 -- Check OS and set default shell accordingly
 if wezterm.target_triple:find("windows") then
 	config.window_background_opacity = 0.95
+	config.font_size = 12
 	config.default_prog = { "C:\\Program Files\\Git\\bin\\bash.exe", "-l", "-c", "zsh" }
+else
+	config.font_size = 15
+	local mux = wezterm.mux
+	local config = {}
+
+	wezterm.on("gui-startup", function(cmd)
+		local tab, pane, window = mux.spawn_window(cmd or {})
+		window:gui_window():maximize()
+	end)
 end
 
 -- tmux
